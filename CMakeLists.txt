@@ -8,9 +8,9 @@ project(openlibm
         VERSION ${CMAKE_MATCH_1}
         LANGUAGES C ASM)
 
-option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+#option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
-add_library("${PROJECT_NAME}")
+add_library("${PROJECT_NAME}" STATIC)
 
 # Find the relevant folder depending on the architecture
 set(OPENLIBM_ARCH_FOLDER ${CMAKE_SYSTEM_PROCESSOR})
@@ -35,7 +35,10 @@ endif()
 
 # Compile flags
 list(APPEND C_ASM_COMPILE_FLAGS "-ffp-contract=off" "-fno-fast-math" "-fno-rounding-math" "-fno-math-errno")
-list(APPEND C_ASM_COMPILE_FLAGS "-fPIC" "-std=c99" "-fno-builtin")
+if(NOT WIN32)
+list(APPEND C_ASM_COMPILE_FLAGS "-fPIC")
+endif()
+list(APPEND C_ASM_COMPILE_FLAGS "-std=c99" "-fno-builtin")
 list(APPEND C_ASM_COMPILE_FLAGS "-Wall" "-Wno-implicit-function-declaration")
 list(APPEND C_ASM_COMPILE_FLAGS "-DASSEMBLER" "-D__BSD_VISIBLE" "-O3")
 
