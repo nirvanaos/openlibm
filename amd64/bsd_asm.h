@@ -68,7 +68,7 @@
 #define	END(x)		.size x, . - x
 
 #elif defined(_WIN32)
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || defined(__clang__)
 #define END(x) .end
 #define _START_ENTRY_WIN .text; _START_ENTRY
 #else
