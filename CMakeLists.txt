@@ -35,8 +35,8 @@ endif()
 
 # Compile flags
 list(APPEND C_ASM_COMPILE_FLAGS "-ffp-contract=off" "-fno-fast-math" "-fno-rounding-math" "-fno-math-errno")
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "Windows")
-list(APPEND C_ASM_COMPILE_FLAGS "-fPIC")
+if(BUILD_SHARED_LIBS AND NOT CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    list(APPEND C_ASM_COMPILE_FLAGS "-fPIC")
 endif()
 list(APPEND C_ASM_COMPILE_FLAGS "-std=c99" "-fno-builtin")
 list(APPEND C_ASM_COMPILE_FLAGS "-Wall" "-Wno-implicit-function-declaration")
