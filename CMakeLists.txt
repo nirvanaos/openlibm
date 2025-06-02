@@ -259,14 +259,16 @@ if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 endif()
 
 # Determine if long double and double are the same size
-include(CheckCSourceCompiles)
-check_c_source_compiles("
+#include(CheckCSourceCompiles)
+#check_c_source_compiles("
 #include <float.h>
 #if (LDBL_MANT_DIG == DBL_MANT_DIG)
 #error \"long double and double are the same size\"
 #endif
-int main(void ) { return 0; }
-" LONG_DOUBLE_NOT_DOUBLE)
+#int main(void ) { return 0; }
+#" LONG_DOUBLE_NOT_DOUBLE)
+
+set(LONG_DOUBLE_NOT_DOUBLE 0)
 
 # Add in long double functions for x86, x64 and aarch64
 if(LONG_DOUBLE_NOT_DOUBLE)
