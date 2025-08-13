@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.25)
 file(READ "${CMAKE_CURRENT_LIST_DIR}/Make.inc" MAKE_FILE)
 string(REGEX MATCH "VERSION = ([0-9\.]+)" _ ${MAKE_FILE})
 
+set(CMAKE_C_STANDARD 11)
+
 project(openlibm
         VERSION ${CMAKE_MATCH_1}
         LANGUAGES C ASM)
@@ -44,7 +46,7 @@ list(APPEND C_ASM_COMPILE_FLAGS "-DASSEMBLER" "-D__BSD_VISIBLE" "-O3")
 
 # Compiler-specific compile flags
 if("${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
-    list(APPEND C_ASM_COMPILE_FLAGS "-fno-strict-aliasing" "-ffp-exception-behavior=strict")
+    list(APPEND C_ASM_COMPILE_FLAGS "-fno-strict-aliasing" "-ffp-exception-behavior=strict" "-fno-ms-compatibility")
 elseif("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
     list(APPEND C_ASM_COMPILE_FLAGS "-fno-gnu89-inline")
 else()

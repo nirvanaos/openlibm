@@ -78,16 +78,20 @@
 #define _ENTRY(x) .text; _START_ENTRY; \
 			.globl CNAME(x); .type CNAME(x),@function; CNAME(x):
 #define	END(x)		.size x, . - x
-#elif defined(_WIN32)
-#ifndef _MSC_VER
+
+#else // #elif defined(_WIN32)
+
+//#ifndef _MSC_VER
 #define END(x) .end
 #define _START_ENTRY_WIN .text; _START_ENTRY
-#else
-#define END(x) end
-#define _START_ENTRY_WIN .code; _START_ENTRY
-#endif
+//#else
+//#define END(x) end
+//#define _START_ENTRY_WIN .code; _START_ENTRY
+//#endif
+
 #define CNAME(csym)		_##csym
 #define HIDENAME(asmsym)	.asmsym
+
 #define _ENTRY(x) _START_ENTRY_WIN; \
             .globl CNAME(x); .section .drectve; .ascii " -export:", #x; \
             .section .text; .def CNAME(x); .scl 2; .type 32; .endef; CNAME(x):
