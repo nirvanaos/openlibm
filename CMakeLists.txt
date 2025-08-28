@@ -270,7 +270,7 @@ endif()
 #int main(void ) { return 0; }
 #" LONG_DOUBLE_NOT_DOUBLE)
 
-set(LONG_DOUBLE_NOT_DOUBLE 0)
+set(LONG_DOUBLE_NOT_DOUBLE 1)
 
 # Add in long double functions for x86, x64 and aarch64
 if(LONG_DOUBLE_NOT_DOUBLE)
