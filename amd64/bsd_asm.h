@@ -67,7 +67,7 @@
 			.globl CNAME(x); .type CNAME(x),@function; CNAME(x):
 #define	END(x)		.size x, . - x
 
-#elif defined(_WIN32)
+#else // #elif defined(_WIN32)
 #if !defined(_MSC_VER) || defined(__clang__)
 #define END(x) .end
 #define _START_ENTRY_WIN .text; _START_ENTRY

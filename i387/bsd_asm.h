@@ -81,13 +81,13 @@
 
 #else // #elif defined(_WIN32)
 
-//#ifndef _MSC_VER
+#if !defined (_MSC_VER) || defined (__clang__)
 #define END(x) .end
 #define _START_ENTRY_WIN .text; _START_ENTRY
-//#else
-//#define END(x) end
-//#define _START_ENTRY_WIN .code; _START_ENTRY
-//#endif
+#else
+#define END(x) end
+#define _START_ENTRY_WIN .code; _START_ENTRY
+#endif
 
 #define CNAME(csym)		_##csym
 #define HIDENAME(asmsym)	.asmsym
