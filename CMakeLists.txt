@@ -500,13 +500,13 @@ elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "i387")
             "${PROJECT_SRC}/i387/s_truncl.S"
     )
 
-#    if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
-#        list(APPEND OPENLIBM_ASM_SOURCE
-#                "${PROJECT_SRC}/i387/s_scalbn.S"
-#                "${PROJECT_SRC}/i387/s_scalbnf.S"
-#                "${PROJECT_SRC}/i387/s_scalbnl.S"
-#        )
-#    endif()
+    if(NOT (${CMAKE_SYSTEM_NAME} STREQUAL "Windows" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Generic"))
+        list(APPEND OPENLIBM_ASM_SOURCE
+                "${PROJECT_SRC}/i387/s_scalbn.S"
+                "${PROJECT_SRC}/i387/s_scalbnf.S"
+                "${PROJECT_SRC}/i387/s_scalbnl.S"
+        )
+    endif()
 
 elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "powerpc")
         list(APPEND OPENLIBM_C_SOURCE
