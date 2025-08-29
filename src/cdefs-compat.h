@@ -59,7 +59,7 @@
 #endif	/* __warn_references */
 #endif	/* __STDC__ */
 #elif defined(__clang__) /* CLANG */
-#if defined(_WIN32) && defined(_X86_)
+#if defined(_X86_)
 #define openlibm_asm_symbol_prefix "_"
 #else
 #define openlibm_asm_symbol_prefix ""

@@ -23,10 +23,6 @@
 #ifndef OPENLIBM_MATH_H
 #define	OPENLIBM_MATH_H
 
-#if (defined(_WIN32) || defined (_MSC_VER)) && !defined(__WIN32__)
-    #define __WIN32__
-#endif
-
 #if !defined(__arm__) && !defined(__wasm__)
 #define OLM_LONG_DOUBLE
 #endif

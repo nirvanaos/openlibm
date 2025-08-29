@@ -67,7 +67,7 @@
 #define __ORDER_BIG_ENDIAN__     BIG_ENDIAN
 #define __BYTE_ORDER__           BYTE_ORDER
 
-#elif defined(_WIN32)
+#else // #elif defined(_WIN32)
 
 #define __ORDER_LITTLE_ENDIAN__  1234
 #define __ORDER_BIG_ENDIAN__     4321

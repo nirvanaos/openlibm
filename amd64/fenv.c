@@ -29,9 +29,7 @@
 #include "bsd_fpu.h"
 #include "math_private.h"
 
-#ifdef _WIN32
-#define __fenv_static OLM_DLLEXPORT
-#endif
+#define __fenv_static
 #include <openlibm_fenv.h>
 
 #ifdef __GNUC_GNU_INLINE__
