@@ -7,7 +7,7 @@
 #include <amd64/bsd_asm.h>
 
 ENTRY(rintl)
-#ifndef _WIN64
+#ifdef __ELF__
 	fldt	8(%rsp)
 	frndint
 #else

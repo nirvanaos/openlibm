@@ -29,7 +29,7 @@
 
 ENTRY(scalbn)
 	movsd	%xmm0,-8(%rsp)
-#ifndef _WIN64
+#ifdef __ELF__
 	movl	%edi,-12(%rsp)
 #else
 	movl	%edx,-12(%rsp)
@@ -41,7 +41,7 @@ ENTRY(scalbn)
 	fstpl	-8(%rsp)
 	movsd	-8(%rsp),%xmm0
 	ret
-#ifndef _WIN64
+#ifdef __ELF__
 END(scalbn)
 .globl CNAME(ldexp)
 #else

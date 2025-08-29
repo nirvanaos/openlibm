@@ -29,7 +29,7 @@
 //__FBSDID("$FreeBSD: src/lib/msun/amd64/s_lrint.S,v 1.3 2011/01/07 16:13:12 kib Exp $")
 
 ENTRY(lrint)
-#ifndef _WIN64
+#ifdef __ELF__
 	cvtsd2si %xmm0, %rax
 #else
 	cvtsd2si %xmm0, %eax

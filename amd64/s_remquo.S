@@ -59,7 +59,7 @@ ENTRY(remquo)
 	andl	$1,%ecx
 	addl	%ecx,%eax
 /* Store the quotient and return. */
-#ifndef _WIN64
+#ifdef __ELF__
 	movl	%eax,(%rdi)
 #else
     movl    %eax,(%r8)
