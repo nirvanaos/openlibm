@@ -93,7 +93,7 @@
 #define HIDENAME(asmsym)	.asmsym
 
 #define _ENTRY(x) _START_ENTRY_WIN; \
-            .globl CNAME(x); .section .drectve; .ascii " -export:", #x; \
+            .globl CNAME(x); .section .drectve; .ascii " -export:", openlibm_asm_symbol_prefix #x; \
             .section .text; .def CNAME(x); .scl 2; .type 32; .endef; CNAME(x):
 #endif
 
