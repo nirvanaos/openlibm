@@ -30,7 +30,6 @@
 #define	_FENV_H_
 
 #include "openlibm_defs.h"
-#include "cdefs-compat.h"
 #include "types-compat.h"
 
 #ifndef	__fenv_static
@@ -85,7 +84,9 @@ typedef	uint16_t	fexcept_t;
 #define	_SSE_ROUND_SHIFT	3
 #define	_SSE_EMASK_SHIFT	7
 
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* After testing for SSE support once, we cache the result in __has_sse. */
 enum __sse_support { __SSE_YES, __SSE_NO, __SSE_UNK };
@@ -255,6 +256,8 @@ fegetexcept(void)
 
 #endif /* __BSD_VISIBLE */
 
-__END_DECLS
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* !_FENV_H_ */

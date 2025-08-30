@@ -30,7 +30,6 @@
 #define	_FENV_H_
 
 #include <openlibm_defs.h>
-#include "cdefs-compat.h"
 #include "types-compat.h"
 
 #ifndef	__fenv_static
@@ -75,7 +74,9 @@ typedef	uint16_t	fexcept_t;
 #define	_SSE_ROUND_SHIFT	3
 #define	_SSE_EMASK_SHIFT	7
 
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Default floating-point environment */
 extern const fenv_t	__fe_dfl_env;
@@ -218,6 +219,8 @@ fegetexcept(void)
 
 #endif /* __BSD_VISIBLE */
 
-__END_DECLS
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* !_FENV_H_ */

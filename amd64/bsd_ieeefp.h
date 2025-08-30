@@ -260,10 +260,14 @@ __fpgetsticky(void)
          && __CC_SUPPORTS___INLINE__ */
 
 /* Augment the userland declarations */
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 extern fp_prec_t fpgetprec(void);
 extern fp_prec_t fpsetprec(fp_prec_t);
-__END_DECLS
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* !__IEEEFP_NOINLINES__ && !__cplusplus && __GNUCLIKE_ASM
           && __CC_SUPPORTS___INLINE__ */
