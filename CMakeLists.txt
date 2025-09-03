@@ -18,7 +18,7 @@ add_library("${PROJECT_NAME}" STATIC)
 set(OPENLIBM_ARCH_FOLDER ${CMAKE_SYSTEM_PROCESSOR})
 string(TOLOWER "${OPENLIBM_ARCH_FOLDER}" OPENLIBM_ARCH_FOLDER)
 
-if(${OPENLIBM_ARCH_FOLDER} STREQUAL "amd64" OR ${OPENLIBM_ARCH_FOLDER} STREQUAL "x86_64")
+if(${OPENLIBM_ARCH_FOLDER} STREQUAL "x64" OR ${OPENLIBM_ARCH_FOLDER} STREQUAL "amd64" OR ${OPENLIBM_ARCH_FOLDER} STREQUAL "x86_64")
     set(OPENLIBM_ARCH_FOLDER "amd64")
 elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "arm64" OR ${OPENLIBM_ARCH_FOLDER} STREQUAL "aarch64")
     set(OPENLIBM_ARCH_FOLDER "aarch64")
@@ -34,6 +34,7 @@ else()
     message(FATAL_ERROR "${PROJECT_NAME} not set up for detected architecture: ${OPENLIBM_ARCH_FOLDER}")
 endif()
 
+message ("Arch folder: " ${OPENLIBM_ARCH_FOLDER})
 
 # Compile flags
 list(APPEND C_ASM_COMPILE_FLAGS "-ffp-contract=off" "-fno-fast-math" "-fno-rounding-math" "-fno-math-errno")
