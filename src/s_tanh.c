@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_tanh.c,v 1.9 2008/02/22 02:30:36 das Exp $");
 
 /* Tanh(x)
@@ -77,7 +76,3 @@ tanh(double x)
 	}
 	return (jx>=0)? z: -z;
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(tanh, tanhl);
-#endif

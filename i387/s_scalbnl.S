@@ -14,11 +14,14 @@ ENTRY(scalbnl)
 	fscale
 	fstp	%st(1)
 	ret
+#ifdef __ELF__
 END(scalbnl)
-
 .globl CNAME(ldexpl)
-.set	CNAME(ldexpl),CNAME(scalbnl)
+#else
+.globl CNAME(ldexpl); .section .drectve; .ascii " -export:ldexpl"
+#endif
 
+.set	CNAME(ldexpl),CNAME(scalbnl)
 	
 /* Enable stack protection */
 #if defined(__ELF__)

@@ -24,7 +24,6 @@
  * SUCH DAMAGE.
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_fma.c,v 1.8 2011/10/21 06:30:43 das Exp $");
 
 #include <float.h>
@@ -278,7 +277,3 @@ fma(double x, double y, double z)
 	else
 		return (add_and_denormalize(r.hi, adj, spread));
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(fma, fmal);
-#endif

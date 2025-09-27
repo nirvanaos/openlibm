@@ -14,9 +14,13 @@ ENTRY(scalbnf)
 	fscale
 	fstp	%st(1)		/* bug fix for fp stack overflow */
 	ret
+#ifdef __ELF__
 END(scalbnf)
-
 .globl CNAME(ldexpf)
+#else
+.globl CNAME(ldexpf); .section .drectve; .ascii " -export:ldexpf"
+#endif
+
 .set	CNAME(ldexpf),CNAME(scalbnf)
 
 	

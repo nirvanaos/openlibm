@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_floor.c,v 1.11 2008/02/15 07:01:40 bde Exp $");
 
 /*
@@ -72,7 +71,3 @@ floor(double x)
 	INSERT_WORDS(x,i0,i1);
 	return x;
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(floor, floorl);
-#endif

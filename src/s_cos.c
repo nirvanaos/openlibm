@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_cos.c,v 1.13 2011/02/10 07:37:50 das Exp $");
 
 /* cos(x)
@@ -83,7 +82,3 @@ cos(double x)
 	    }
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(cos, cosl);
-#endif

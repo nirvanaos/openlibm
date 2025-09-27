@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_exp.c,v 1.14 2011/10/21 06:26:38 das Exp $");
 
 /* __ieee754_exp(x)
@@ -166,6 +165,3 @@ __ieee754_exp(double x)	/* default IEEE double exp */
 	}
 }
 
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(exp, expl);
-#endif

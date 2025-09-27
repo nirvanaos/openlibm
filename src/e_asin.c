@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_asin.c,v 1.15 2011/02/10 07:37:50 das Exp $");
 
 /* __ieee754_asin(x)
@@ -111,7 +110,3 @@ __ieee754_asin(double x)
 	}    
 	if(hx>0) return t; else return -t;    
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(asin, asinl);
-#endif

@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_erf.c,v 1.8 2008/02/22 02:30:35 das Exp $");
 
 /* double erf(double x)
@@ -300,8 +299,3 @@ erfc(double x)
 	    if(hx>0) return tiny*tiny; else return two-tiny;
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(erf, erfl);
-openlibm_weak_reference(erfc, erfcl);
-#endif

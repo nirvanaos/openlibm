@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_cosh.c,v 1.10 2011/10/21 06:28:47 das Exp $");
 
 /* __ieee754_cosh(x)
@@ -80,6 +79,3 @@ __ieee754_cosh(double x)
 	return huge*huge;
 }
 
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(cosh, coshl);
-#endif

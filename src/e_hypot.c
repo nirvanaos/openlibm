@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_hypot.c,v 1.14 2011/10/15 07:00:28 das Exp $");
 
 /* __ieee754_hypot(x,y)
@@ -125,7 +124,3 @@ __ieee754_hypot(double x, double y)
 	    return t1*w;
 	} else return w;
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(hypot, hypotl);
-#endif

@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_trunc.c,v 1.4 2008/02/22 02:27:34 das Exp $");
 
 /*
@@ -61,7 +60,3 @@ trunc(double x)
 	INSERT_WORDS(x,i0,i1);
 	return x;
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(trunc, truncl);
-#endif

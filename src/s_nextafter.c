@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_nextafter.c,v 1.12 2008/02/22 02:30:35 das Exp $");
 
 /* IEEE functions
@@ -75,9 +74,3 @@ nextafter(double x, double y)
 	INSERT_WORDS(x,hx,lx);
 	return x;
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(nextafter, nexttoward);
-openlibm_weak_reference(nextafter, nexttowardl);
-openlibm_weak_reference(nextafter, nextafterl);
-#endif

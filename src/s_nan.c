@@ -118,7 +118,3 @@ nanf(const char *s)
 	u.bits[0] |= 0x7fc00000;
 	return (u.f);
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(nan, nanl);
-#endif

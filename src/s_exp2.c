@@ -24,7 +24,6 @@
  * SUCH DAMAGE.
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_exp2.c,v 1.7 2008/02/22 02:27:34 das Exp $");
 
 #include <float.h>
@@ -390,7 +389,3 @@ exp2(double x)
 		return (r * twopkp1000 * twom1000);
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(exp2, exp2l);
-#endif

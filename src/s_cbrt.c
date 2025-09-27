@@ -12,7 +12,6 @@
  * Optimized by Bruce D. Evans.
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_cbrt.c,v 1.17 2011/03/12 16:50:39 kargl Exp $");
 
 #include <openlibm_math.h>
@@ -112,7 +111,3 @@ cbrt(double x)
 
 	return(t);
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(cbrt, cbrtl);
-#endif

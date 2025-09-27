@@ -338,6 +338,9 @@ if(LONG_DOUBLE_NOT_DOUBLE)
             "${PROJECT_SRC}/src/s_ccosl.c"
             "${PROJECT_SRC}/src/s_cbrtl.c"
     )
+
+else() 
+  list(APPEND OPENLIBM_C_SOURCE "${PROJECT_SRC}/src/long_double_is_double.c")
 endif()
 
 if (LONG_DOUBLE_NOT_DOUBLE)
@@ -417,28 +420,33 @@ if (${OPENLIBM_ARCH_FOLDER} STREQUAL "amd64")
     list(APPEND OPENLIBM_ASM_SOURCE
         "${PROJECT_SRC}/amd64/e_remainder.S"
         "${PROJECT_SRC}/amd64/e_remainderf.S"
-        "${PROJECT_SRC}/amd64/e_remainderl.S"
         "${PROJECT_SRC}/amd64/e_sqrt.S"
         "${PROJECT_SRC}/amd64/e_sqrtf.S"
-        "${PROJECT_SRC}/amd64/e_sqrtl.S"
         "${PROJECT_SRC}/amd64/s_llrint.S"
         "${PROJECT_SRC}/amd64/s_llrintf.S"
-        "${PROJECT_SRC}/amd64/s_llrintl.S"
-        "${PROJECT_SRC}/amd64/s_logbl.S"
         "${PROJECT_SRC}/amd64/s_lrint.S"
         "${PROJECT_SRC}/amd64/s_lrintf.S"
-        "${PROJECT_SRC}/amd64/s_lrintl.S"
         "${PROJECT_SRC}/amd64/s_remquo.S"
         "${PROJECT_SRC}/amd64/s_remquof.S"
-        "${PROJECT_SRC}/amd64/s_remquol.S"
-        "${PROJECT_SRC}/amd64/s_rintl.S"
         "${PROJECT_SRC}/amd64/s_scalbn.S"
         "${PROJECT_SRC}/amd64/s_scalbnf.S"
-        "${PROJECT_SRC}/amd64/s_scalbnl.S"
         "${PROJECT_SRC}/amd64/e_fmod.S"
         "${PROJECT_SRC}/amd64/e_fmodf.S"
-        "${PROJECT_SRC}/amd64/e_fmodl.S"
     )
+
+	if(LONG_DOUBLE_NOT_DOUBLE)
+    list(APPEND OPENLIBM_ASM_SOURCE
+				"${PROJECT_SRC}/amd64/e_remainderl.S"
+				"${PROJECT_SRC}/amd64/e_sqrtl.S"
+				"${PROJECT_SRC}/amd64/s_llrintl.S"
+				"${PROJECT_SRC}/amd64/s_logbl.S"
+				"${PROJECT_SRC}/amd64/s_lrintl.S"
+				"${PROJECT_SRC}/amd64/s_remquol.S"
+				"${PROJECT_SRC}/amd64/s_rintl.S"
+				"${PROJECT_SRC}/amd64/s_scalbnl.S"
+				"${PROJECT_SRC}/amd64/e_fmodl.S"
+		)
+	endif()
 
 elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "aarch64")
     list(APPEND OPENLIBM_C_SOURCE
@@ -468,6 +476,7 @@ elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "i387")
             "${PROJECT_SRC}/i387/s_llrint.S"
             "${PROJECT_SRC}/i387/s_logb.S"
             "${PROJECT_SRC}/i387/s_lrint.S"
+#						"${PROJECT_SRC}/i387/s_scalbn.S"
             "${PROJECT_SRC}/i387/s_remquo.S"
             "${PROJECT_SRC}/i387/s_rint.S"
             "${PROJECT_SRC}/i387/s_tan.S"
@@ -486,8 +495,12 @@ elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "i387")
             "${PROJECT_SRC}/i387/s_lrintf.S"
             "${PROJECT_SRC}/i387/s_remquof.S"
             "${PROJECT_SRC}/i387/s_rintf.S"
+						"${PROJECT_SRC}/i387/s_scalbnf.S"
             "${PROJECT_SRC}/i387/s_truncf.S"
+    )
 
+		if(LONG_DOUBLE_NOT_DOUBLE)
+    	list(APPEND OPENLIBM_ASM_SOURCE
             # long double counterparts
             "${PROJECT_SRC}/i387/e_remainderl.S"
             "${PROJECT_SRC}/i387/e_sqrtl.S"
@@ -499,16 +512,10 @@ elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "i387")
             "${PROJECT_SRC}/i387/s_lrintl.S"
             "${PROJECT_SRC}/i387/s_remquol.S"
             "${PROJECT_SRC}/i387/s_rintl.S"
+						"${PROJECT_SRC}/i387/s_scalbnl.S"
             "${PROJECT_SRC}/i387/s_truncl.S"
-    )
-
-    if(NOT (${CMAKE_SYSTEM_NAME} STREQUAL "Windows" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Generic"))
-        list(APPEND OPENLIBM_ASM_SOURCE
-                "${PROJECT_SRC}/i387/s_scalbn.S"
-                "${PROJECT_SRC}/i387/s_scalbnf.S"
-                "${PROJECT_SRC}/i387/s_scalbnl.S"
-        )
-    endif()
+			)
+		endif()
 
 elseif(${OPENLIBM_ARCH_FOLDER} STREQUAL "powerpc")
         list(APPEND OPENLIBM_C_SOURCE

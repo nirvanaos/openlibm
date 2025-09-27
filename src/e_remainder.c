@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_remainder.c,v 1.12 2008/03/30 20:47:42 das Exp $");
 
 /* __ieee754_remainder(x,p)
@@ -73,7 +72,3 @@ __ieee754_remainder(double x, double p)
 	SET_HIGH_WORD(x,hx^sx);
 	return x;
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(remainder, remainderl);
-#endif

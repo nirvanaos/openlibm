@@ -18,7 +18,6 @@
  * is preserved.
  * ====================================================
  */
- #include "cdefs-compat.h"
 
 /* sincos(x, s, c)
  * Several applications need sine and cosine of the same
@@ -153,7 +152,3 @@ sincos(double x, double * s, double * c)
         }
     }
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(sincos, sincosl);
-#endif

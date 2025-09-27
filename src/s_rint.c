@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_rint.c,v 1.16 2008/02/22 02:30:35 das Exp $");
 
 /*
@@ -86,7 +85,3 @@ rint(double x)
 	STRICT_ASSIGN(double,w,TWO52[sx]+x);
 	return w-TWO52[sx];
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(rint, rintl);
-#endif

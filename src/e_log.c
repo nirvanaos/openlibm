@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_log.c,v 1.15 2008/03/29 16:37:59 das Exp $");
 
 /* __ieee754_log(x)
@@ -140,7 +139,3 @@ __ieee754_log(double x)
 		     return dk*ln2_hi-((s*(f-R)-dk*ln2_lo)-f);
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(log, logl);
-#endif

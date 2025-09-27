@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_atan.c,v 1.13 2011/02/10 07:37:50 das Exp $");
 
 /* atan(x)
@@ -118,7 +117,3 @@ atan(double x)
 	    return (hx<0)? -z:z;
 	}
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(atan, atanl);
-#endif

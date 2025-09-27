@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_tan.c,v 1.13 2011/02/10 07:37:50 das Exp $");
 
 /* tan(x)
@@ -77,7 +76,3 @@ tan(double x)
 							-1 -- n odd */
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(tan, tanl);
-#endif

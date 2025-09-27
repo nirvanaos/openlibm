@@ -12,7 +12,6 @@
  *
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_atanh.c,v 1.8 2008/02/22 02:30:34 das Exp $");
 
 /* __ieee754_atanh(x)
@@ -63,6 +62,3 @@ __ieee754_atanh(double x)
 	if(hx>=0) return t; else return -t;
 }
 
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(atanh, atanhl);
-#endif

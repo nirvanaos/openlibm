@@ -11,7 +11,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_sqrt.c,v 1.11 2008/03/02 01:47:58 das Exp $");
 
 /* __ieee754_sqrt(x)
@@ -187,10 +186,6 @@ __ieee754_sqrt(double x)
 	INSERT_WORDS(z,ix0,ix1);
 	return z;
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(sqrt, sqrtl);
-#endif
 
 /*
 Other methods  (use floating-point arithmetic)

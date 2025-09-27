@@ -13,10 +13,15 @@ ENTRY(scalbn)
 	fscale
 	fstp	%st(1)
 	ret
+#ifdef __ELF__
 END(scalbn)
-
 .globl CNAME(ldexp)
+#else
+.globl CNAME(ldexp); .section .drectve; .ascii " -export:ldexp"
+#endif
+
 .set   CNAME(ldexp),CNAME(scalbn)
+
 /* Enable stack protection */
 #if defined(__ELF__)
 .section .note.GNU-stack,"",%progbits

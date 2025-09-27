@@ -12,7 +12,6 @@
  *
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/e_acosh.c,v 1.9 2008/02/22 02:30:34 das Exp $");
 
 /* __ieee754_acosh(x)
@@ -62,7 +61,3 @@ __ieee754_acosh(double x)
 	    return log1p(t+sqrt(2.0*t+t*t));
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(acosh, acoshl);
-#endif

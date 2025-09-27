@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_asinh.c,v 1.9 2008/02/22 02:30:35 das Exp $");
 
 /* asinh(x)
@@ -56,7 +55,3 @@ asinh(double x)
 	}
 	if(hx>0) return w; else return -w;
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(asinh, asinhl);
-#endif

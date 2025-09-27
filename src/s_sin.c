@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_sin.c,v 1.13 2011/02/10 07:37:50 das Exp $");
 
 /* sin(x)
@@ -83,7 +82,3 @@ sin(double x)
 	    }
 	}
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(sin, sinl);
-#endif

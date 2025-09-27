@@ -10,7 +10,6 @@
  * ====================================================
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_logb.c,v 1.12 2008/02/08 01:22:13 bde Exp $");
 
 /*
@@ -43,7 +42,3 @@ logb(double x)
 	} else
 		return (double) ((ix>>20)-1023);
 }
-
-#if (LDBL_MANT_DIG == 53)
-openlibm_weak_reference(logb, logbl);
-#endif

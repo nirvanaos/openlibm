@@ -24,7 +24,6 @@
  * SUCH DAMAGE.
  */
 
-#include "cdefs-compat.h"
 //__FBSDID("$FreeBSD: src/lib/msun/src/s_csqrt.c,v 1.4 2008/08/08 00:15:16 das Exp $");
 
 #include <float.h>
@@ -108,7 +107,3 @@ csqrt(double complex z)
 	else
 		return (result);
 }
-
-#if LDBL_MANT_DIG == 53
-openlibm_weak_reference(csqrt, csqrtl);
-#endif
