@@ -75,13 +75,21 @@ extern const union __nan_un {
 #ifdef __MATH_BUILTIN_CONSTANTS
 #define	HUGE_VALF	__builtin_huge_valf()
 #define	HUGE_VALL	__builtin_huge_vall()
+#ifndef INFINITY
 #define	INFINITY	__builtin_inff()
+#endif
+#ifndef NAN
 #define	NAN		__builtin_nanf("")
+#endif
 #else
 #define	HUGE_VALF	(float)HUGE_VAL
 #define	HUGE_VALL	(long double)HUGE_VAL
+#ifndef INFINITY
 #define	INFINITY	HUGE_VALF
+#endif
+#ifndef NAN
 #define	NAN		(__nan.__uf)
+#endif
 #endif /* __MATH_BUILTIN_CONSTANTS */
 
 #define	MATH_ERRNO	1
