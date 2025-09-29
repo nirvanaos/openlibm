@@ -21,7 +21,11 @@
 #define FLOAT long double
 #define TEST_MSG "testing long double (without inline functions)\n"
 #define MATHCONST(x) x ## L
+#if (LDBL_MANT_DIG > DBL_MANT_DIG)
 #define CHOOSE(Clongdouble,Cdouble,Cfloat,Cinlinelongdouble,Cinlinedouble,Cinlinefloat) Clongdouble
+#else
+#define CHOOSE(Clongdouble,Cdouble,Cfloat,Cinlinelongdouble,Cinlinedouble,Cinlinefloat) Cdouble
+#endif
 #define PRINTF_EXPR "Le"
 #define PRINTF_XEXPR "La"
 #define PRINTF_NEXPR "Lf"
