@@ -29,6 +29,7 @@ openlibm_weak_reference(log1p, log1pl);
 openlibm_weak_reference(log10, log10l);
 openlibm_weak_reference(log2, log2l);
 openlibm_weak_reference(logb, logbl);
+openlibm_weak_reference(modf, modfl);
 openlibm_weak_reference(nan, nanl);
 openlibm_weak_reference(nextafter, nexttoward);
 openlibm_weak_reference(nextafter, nexttowardl);
